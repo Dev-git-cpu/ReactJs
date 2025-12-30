@@ -1,8 +1,14 @@
-import React, { Children } from 'react'
+import React, { Children, useState } from 'react'
 import UserContext from './userContext'
 
-const UserContactProvider = (Children)=>{
-     
+const UserContactProvider = ({children})=>{
 
+const [user,setUser]=useState(null)
+
+    return (
+     <UserContext.Provider value={{user,setUser}}>
+     {children}
+     </UserContext.Provider>
+    )
 }
 export default UserContactProvider
